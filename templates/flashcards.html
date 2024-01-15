@@ -1,0 +1,94 @@
+{% extends "index.html" %} {% block title %}Circle of Fourths {% endblock %} {%
+block content %}
+<main class="content">
+  <div class="flashcards">
+    <img src="static/images/B_6.png" alt="B6" width="130px" height="282px" />
+  </div>
+  <div class="feedback">
+    <button>repeat</button>
+    <button>remind</button>
+    <button>archive</button>
+  </div>
+  <p>{{random_note}}</p>
+  <p>{{notes}}</p>
+  <p>{{fretboard}}</p>
+
+  <table style="background-color: #c6beb3">
+    {% for fret in fretboard%}
+    <tr class="border-bottom">
+      {% for note in fret%} {% if fret == True %}
+      <td id="1" class="note">•</td>
+      {% else %}
+      <td id="61" class="note">x</td>
+      {% endif %} {% endfor %}
+    </tr>
+    {% endfor %}
+    <!-- <tr class="border-bottom fret-top">
+      <td id="1" class="note">•</td>
+      <td id="13" class="note">•</td>
+      <td id="25" class="note">•</td>
+      <td id="37" class="note">•</td>
+      <td id="49" class="note">•</td>
+      <td id="61" class="note">•</td>
+    </tr>
+    <tr class="border-bottom">
+      <td id="2" class="note">•</td>
+      <td id="14" class="note">•</td>
+      <td id="26" class="note">•</td>
+      <td id="38" class="note">•</td>
+      <td id="50" class="note">•</td>
+      <td id="62" class="note">•</td>
+    </tr>
+    <tr class="border-bottom darker">
+      <td id="3" class="note">•</td>
+      <td id="15" class="note">•</td>
+      <td id="27" class="note">•</td>
+      <td id="39" class="note">•</td>
+      <td id="51" class="note">•</td>
+      <td id="63" class="note">•</td>
+    </tr>
+    <tr class="border-bottom">
+      <td id="4" class="note">•</td>
+      <td id="16" class="note">•</td>
+      <td id="28" class="note">•</td>
+      <td id="40" class="note">•</td>
+      <td id="52" class="note">•</td>
+      <td id="64" class="note">•</td>
+    </tr>
+    <tr class="border-bottom darker">
+      <td id="5" class="note">•</td>
+      <td id="17" class="note">•</td>
+      <td id="29" class="note">•</td>
+      <td id="41" class="note">•</td>
+      <td id="53" class="note">•</td>
+      <td id="65" class="note">•</td>
+    </tr>
+    <tr class="border-bottom">
+      <td id="6" class="note">•</td>
+      <td id="18" class="note">•</td>
+      <td id="30" class="note">•</td>
+      <td id="42" class="note">•</td>
+      <td id="54" class="note">•</td>
+      <td id="66" class="note">•</td>
+    </tr>
+    <tr class="border-bottom darker">
+      <td id="7" class="note">•</td>
+      <td id="19" class="note">•</td>
+      <td id="31" class="note">•</td>
+      <td id="43" class="note">•</td>
+      <td id="55" class="note">•</td>
+      <td id="67" class="note">•</td>
+    </tr>
+    <tr class="border-bottom">
+      <td id="8" class="note">•</td>
+      <td id="20" class="note">•</td>
+      <td id="32" class="note">•</td>
+      <td id="44" class="note">•</td>
+      <td id="56" class="note">•</td>
+      <td id="68" class="note">•</td>
+    </tr> -->
+  </table>
+</main>
+{% endblock %}
+
+<!-- draw all the cells. if cell id == notes in key, color grey. if cell id == random number, color green, else color none -->

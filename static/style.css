@@ -22,13 +22,22 @@ h1 {
 }
 table {
   border-collapse: collapse;
+  background-color: #c6beb3;
 }
+tr#Fret-3,
+#Fret-5,
+#Fret-7,
+#Fret-9,
+#Fret-12 {
+  background-color: #aea394;
+}
+
 tr.border-bottom td {
   padding: 5px;
 
   border-bottom: 1pt solid black;
 }
 
-tr.fret-top td {
+tr#Fret-1 td {
   border-top: 2pt double black;
 }

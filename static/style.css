@@ -29,15 +29,35 @@ tr#Fret-3,
 #Fret-7,
 #Fret-9,
 #Fret-12 {
-  background-color: #aea394;
+  background-color: #b7b2aa;
 }
 
 tr.border-bottom td {
-  padding: 5px;
-
-  border-bottom: 1pt solid black;
+  border-bottom: 0.5pt solid #747474;
 }
 
 tr#Fret-1 td {
-  border-top: 2pt double black;
+  border-top: 2pt double #747474;
+}
+.note {
+  color: #5c574f;
+  padding: 5px;
+}
+.silent-notes {
+  color: #ada69d;
+  padding: 5px;
+}
+.random-note {
+  color: green;
+  font-size: 1.5rem;
+  padding: 2px;
+}
+.short-strings {
+  border-left: 0.5px solid red;
+  height: 2px;
+  /* position: absolute; */
+  /* left: 50%;
+  margin-left: 50%; */
+  margin-left: 50%;
+  top: 0;
 }

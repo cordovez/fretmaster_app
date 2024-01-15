@@ -10,6 +10,7 @@ from fastapi.templating import Jinja2Templates
 
 from controllers.fretboards import return_all_frets_with_key
 from controllers.fretboards import fretboard_matrix
+from controllers.random_note_in_key import return_random_note_in_key
 
 front_router = APIRouter()
 
@@ -35,9 +36,14 @@ async def flashcards(request: Request, key_position: str):
     # fretboard = return_random_note_in_position("B6")
     notes = return_all_frets_with_key(key_position)
     fretboard = fretboard_matrix(notes)
+    random_note = return_random_note_in_key(key_position)
 
     return templates.TemplateResponse(
         "flashcards.html",
-        {"request": request, "fretboard": fretboard, "notes": notes},
-        # {"request": request, "notes": notes, "random_note": random_note, "card": card},
+        {
+            "request": request,
+            "fretboard": fretboard,
+            "notes": notes,
+            "random": random_note,
+        },
     )

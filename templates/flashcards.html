@@ -9,18 +9,28 @@ block content %}
     <button>remind</button>
     <button>archive</button>
   </div>
-  <!-- <p>{{random_note}}</p>
-  <p>{{notes}}</p> -->
-  <!-- <p>{{fretboard}}</p> -->
 
+  {% for note in notes%} {% if note['index'] == random %}
+  <p>random index: {{random}}, note: {{note['note']}}</p>
+  {% endif %} {% endfor %}
   <table>
     {% for fret in fretboard%} {% if fret[0]['fret'] < 9 %}
     <tr id="Fret-{{fret[0]['fret']}}" class="border-bottom">
-      {% for note in fret%} {% if note['pluck'] %}
-      <td id="{{note['note']}}" class="note">•</td>
-
+      {% for note in fret%} {% if note['index'] == random %}
+      <td
+        id="{{ note['note']}}"
+        data-index="{{note['index']}}"
+        class="random-note"
+      >
+        •
+      </td>
+      {% elif note['pluck'] %}
+      <!-- <td id="{{note['note']}}" class="note">•</td> -->
+      <td id="{{ note['note']}}" data-index="{{note['index']}}" class="note">
+        •
+      </td>
       {% else %}
-      <td id="{{note['note']}}" class="note">&nbsp</td>
+      <td id="{{note['note']}}" class="silent-notes">•</td>
       {% endif %} {% endfor %}
     </tr>
     {% endif %} {% endfor %}

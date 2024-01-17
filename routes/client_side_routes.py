@@ -39,7 +39,7 @@ async def flashcards(request: Request, key_position: KeyPosition):
     key = get_key(key_position.value)
 
     return templates.TemplateResponse(
-        "flashcards.html",
+        "flashcards_random_note.html",
         {
             "request": request,
             "fretboard": fretboard,

@@ -1,3 +1,18 @@
+body {
+margin: 0;
+background-color: #d4d4d4
+;
+}
+.card {
+background-color: white;
+width: 400px;
+height: 800px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 28px;
+filter: drop-shadow(3px 3px 3px rgb(94, 94, 94))
+}
 .content {
   display: flex;
   flex-direction: column;
@@ -35,13 +50,8 @@ left: -45px;
   height: auto;
 }
 
-/* tr.border-bottom td {
-  border-bottom: 0.5pt solid #747474;
-} */
+
 td img {
   width: 50px;
   height: 73.5px;
 }
-/* tr#Fret-1 td {
-  border-top: 2pt double #747474;
-} */

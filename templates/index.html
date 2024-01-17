@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block head %}
-    <title>{% block title %}{% endblock %} FretMaster</title>
-    {% block style %}
-    <link rel="stylesheet" href="static/style.css" />
-    {% endblock %} {% endblock %}
+      <title>
+        {% block title %}FretMaster{% endblock %}
+      </title>
+      {% block style %}<link rel="stylesheet" href="static/style.css" />{% endblock %}
+    {% endblock %}
   </head>
   <body>
-    <h1>FretMaster</h1>
     <div id="content">
       {% block content %}
-
-      <main class="content"><h2>FlashCards</h2></main>
+        <h1>FretMaster</h1>
+        <main class="content">
+          <p>
+            An introduction Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque atque perspiciatis illo voluptas magni quaerat modi delectus amet quae praesentium, vel molestiae corrupti dignissimos laudantium laborum autem explicabo debitis. Et?
+          </p>
+        </main>
       {% endblock %}
     </div>
   </body>

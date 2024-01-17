@@ -1,78 +1,68 @@
-{% extends "index.html" %} {% block title %}Circle of Fourths {% endblock %} {%
-block style %}
-<link rel="stylesheet" href="static/fretboard_styles.css" />
-{% endblock %} {% block content %}
-<main class="content">
-  <div class="fretboard-container">
-    <img
-      src="/static/images/Fretboard.svg"
-      alt=""
-      width="50%"
-      height="50%"
-      class="fretboard"
-    />
-    <table class="transparent-table">
-      {% for fret in fretboard%} {% if fret[0]['fret'] < 9 %}
-      <tr id="Fret-{{fret[0]['fret']}}" class="border-bottom">
-        <!-- RANDOM NOTE SELECTED TO GUESS -->
-        {% for note in fret%} {% if note['index'] == random %}
-        <td
-          id="{{ note['note']}}"
-          data-index="{{note['index']}}"
-          class="random-note"
-        >
-          {% if note['index'] == random and note['note'] == key %}
-          <img
-            src="/static/images/Notes_root_selected.svg"
-            alt="note in the scale"
-            width="50px"
-            height="90px"
-          />
-          {% else %}
-          <img
-            src="/static/images/Notes_selected.svg"
-            alt="note in the scale"
-            width="50px"
-            height="90px"
-          />
+{% extends "index.html" %}
+{% block title %}Circle of Fourths{% endblock %}
+{% block style %}<link rel="stylesheet" href="static/fretboard_styles.css" />{% endblock %}
+{% block content %}
+  <main class="content">
+    <h1>FlashCards</h1>
+    <div class="fretboard-container">
+      <img src="/static/images/Fretboard.svg"
+           alt=""
+           width="50%"
+           height="50%"
+           class="fretboard" />
+      <table class="transparent-table">
+        {% for fret in fretboard %}
+          {% if fret[0]['fret'] < 9 %}
+            <tr id="Fret-{{ fret[0]['fret'] }}" class="border-bottom">
+              <!-- RANDOM NOTE SELECTED TO GUESS -->
+              {% for note in fret %}
+                {% if note['index'] == random %}
+                  <td id="{{ note['note'] }}"
+                      data-index="{{ note['index'] }}"
+                      class="random-note">
+                    {% if note['index'] == random and note['note'] == key %}
+                      <img src="/static/images/Notes_root_selected.svg"
+                           alt="note in the scale"
+                           width="50px"
+                           height="90px" />
+                    {% else %}
+                      <img src="/static/images/Notes_selected.svg"
+                           alt="note in the scale"
+                           width="50px"
+                           height="90px" />
+                    {% endif %}
+                  </td>
+                  <!-- NOTES IN SCALE -->
+                {% elif note['pluck'] %}
+                  <td id="{{ note['note'] }}" data-index="{{ note['index'] }}" class="note">
+                    <img src="/static/images/Notes.svg"
+                         alt="note in the scale"
+                         width="50px"
+                         height="90px" />
+                  </td>
+                  <!-- NOTES NOT IN SCALE -->
+                {% else %}
+                  <td id="{{ note['note'] }}" class="silent-notes">
+                    <img src="/static/images/Notes_ghost.svg"
+                         alt="note not in the scale"
+                         width="50px"
+                         height="90px" />
+                  </td>
+                {% endif %}
+              {% endfor %}
+            </tr>
           {% endif %}
-        </td>
-        <!-- NOTES IN SCALE -->
-        {% elif note['pluck'] %}
-        <td id="{{ note['note']}}" data-index="{{note['index']}}" class="note">
-          <img
-            src="/static/images/Notes.svg"
-            alt="note in the scale"
-            width="50px"
-            height="90px"
-          />
-        </td>
-        <!-- NOTES NOT IN SCALE -->
-        {% else %}
-        <td id="{{note['note']}}" class="silent-notes">
-          <img
-            src="/static/images/Notes_ghost.svg"
-            alt="note not in the scale"
-            width="50px"
-            height="90px"
-          />
-        </td>
-        {% endif %} {% endfor %}
-      </tr>
-      {% endif %} {% endfor %}
-    </table>
-  </div>
-  <div class="feedback">
-    <button>repeat</button>
-    <button>remind</button>
-    <button>archive</button>
-  </div>
-  <h3>Notes:</h3>
-
-  {% for note in notes%} {% if note['index'] == random %}
-  <p>random index: {{random}}, note: {{note['note']}}, key: {{key}}</p>
-  {% endif %} {% endfor %}
-</main>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="feedback">
+      <button>repeat</button>
+      <button>remind</button>
+      <button>archive</button>
+    </div>
+    <h3>Notes:</h3>
+    {% for note in notes %}
+      {% if note['index'] == random %}<p>random index: {{ random }}, note: {{ note['note'] }}, key: {{ key }}</p>{% endif %}
+    {% endfor %}
+  </main>
 {% endblock %}
-
-<!-- draw all the cells. if cell id == notes in key, color grey. if cell id == random number, color green, else color none -->

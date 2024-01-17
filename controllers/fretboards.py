@@ -1,7 +1,4 @@
 import json
-import pprint
-
-selected_position = "B6"
 
 
 def return_all_frets() -> list:
@@ -28,14 +25,14 @@ def return_indexes_for_all_keys() -> list[object]:
     return key_notes
 
 
-def get_note_indexes_for_position(position: str) -> list:
+def get_note_indexes_for_position(position) -> list:
     all_positions = return_indexes_for_all_keys()
     for key_position in all_positions:
         if position in key_position.keys():
             return key_position[position]
 
 
-def return_all_frets_with_key(key_position: str) -> list[object]:
+def return_all_frets_with_key(key_position) -> list[object]:
     """All the frets in fretboard with a new field for "pluck" if the note is in the key_position passed:
 
     [

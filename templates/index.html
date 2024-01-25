@@ -7,28 +7,35 @@
           content="Guitar, music, circle of fourths, circle of fifths, memory">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block head %}
+      <script src="https://unpkg.com/htmx.org@1.9.10"
+              integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+              crossorigin="anonymous"></script>
       <title>
         {% block title %}FretMaster{% endblock %}
       </title>
-      {% block style %}<link rel="stylesheet" href="static/style.css" />{% endblock %}
+      <link rel="stylesheet" href="{{ url_for('static', path='/css/app.css') }}">
     {% endblock %}
   </head>
-  <body>
+  <header class="bg-blue-300 ">
     <nav>
       <ul>
-        <li>7 positions</li>
-        <li>Random notes</li>
+        <li class=" ">
+          <a href="/flashcards/positions">7 positions</a>
+        </li>
+        <li>
+          <a href="/flashcards/random">Random notes</a>
+        </li>
       </ul>
     </nav>
-    <div id="content">
+  </header>
+  <body>
+    <main>
       {% block content %}
         <h1>FretMaster</h1>
-        <main class="content">
-          <p>
-            An introduction Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque atque perspiciatis illo voluptas magni quaerat modi delectus amet quae praesentium, vel molestiae corrupti dignissimos laudantium laborum autem explicabo debitis. Et?
-          </p>
-        </main>
+        <p>
+          An introduction Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque atque perspiciatis illo voluptas magni quaerat modi delectus amet quae praesentium, vel molestiae corrupti dignissimos laudantium laborum autem explicabo debitis. Et?
+        </p>
       {% endblock %}
-    </div>
+    </main>
   </body>
 </html>

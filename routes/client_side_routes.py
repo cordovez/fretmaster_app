@@ -31,12 +31,46 @@ async def base(
     )
 
 
-@front_router.get("/flashcards", response_class=HTMLResponse)
-async def flashcards(request: Request, key_position: KeyPosition):
+# @front_router.get("/flashcards/positions", response_class=HTMLResponse)
+# async def positions(request: Request, key_position: KeyPosition):
+#     notes = return_all_frets_with_key(key_position.value)
+#     fretboard = fretboard_matrix(notes)
+#     random_note = return_random_note_in_key(key_position.value)
+#     key = get_key(key_position.value)
+#     key_position = key_position.name
+
+#     return templates.TemplateResponse(
+#         "flashcards_random_note.html",
+#         {
+#             "request": request,
+#             "fretboard": fretboard,
+#             "notes": notes,
+#             "random": random_note,
+#             "key": key,
+#             "key_position": key_position,
+#         },
+#     )
+
+
+@front_router.get("/flashcards/positions", response_class=HTMLResponse)
+async def positions(
+    request: Request,
+):
+    return templates.TemplateResponse(
+        "positions.html",
+        {
+            "request": request,
+        },
+    )
+
+
+@front_router.get("/flashcards/{key_position}", response_class=HTMLResponse)
+async def random_note(request: Request, key_position: KeyPosition):
     notes = return_all_frets_with_key(key_position.value)
     fretboard = fretboard_matrix(notes)
     random_note = return_random_note_in_key(key_position.value)
     key = get_key(key_position.value)
+    key_position = key_position.name
 
     return templates.TemplateResponse(
         "flashcards_random_note.html",
@@ -46,5 +80,50 @@ async def flashcards(request: Request, key_position: KeyPosition):
             "notes": notes,
             "random": random_note,
             "key": key,
+            "key_position": key_position,
+        },
+    )
+
+
+@front_router.get("/flashcards/{key_position}/notes", response_class=HTMLResponse)
+async def update_note_set(request: Request, key_position: KeyPosition):
+    notes = return_all_frets_with_key(key_position.value)
+    fretboard = fretboard_matrix(notes)
+    random_note = return_random_note_in_key(key_position.value)
+    key = get_key(key_position.value)
+    key_position = key_position.name
+
+    return templates.TemplateResponse(
+        "note_set.html",
+        {
+            "request": request,
+            "notes": notes,
+            "fretboard": fretboard,
+            "random": random_note,
+            "key": key,
+            "key_position": key_position,
+        },
+    )
+
+
+@front_router.get(
+    "/flashcards/{key_position}/notes/answer", response_class=HTMLResponse
+)
+async def display_random_note(request: Request, key_position: KeyPosition):
+    notes = return_all_frets_with_key(key_position.value)
+    fretboard = fretboard_matrix(notes)
+    random_note = return_random_note_in_key(key_position.value)
+    key = get_key(key_position.value)
+    key_position = key_position.name
+
+    return templates.TemplateResponse(
+        "partials/random_note_answer.html",
+        {
+            "request": request,
+            "notes": notes,
+            "fretboard": fretboard,
+            "random": random_note,
+            "key": key,
+            "key_position": key_position,
         },
     )

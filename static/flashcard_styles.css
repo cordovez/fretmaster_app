@@ -1,7 +1,13 @@
 body {
-margin: 0;
-background-color: #d4d4d4
-;
+background-color: #cdcdcd }
+main {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 90%;
+margin: auto;
+
+
 }
 .card {
 background-color: white;
@@ -28,17 +34,17 @@ margin-top: 20px;
 .fretboard-container {
   position: relative;
   display: inline-block;
-left: -45px;
+  left: -45px;
   width: 250px;
 }
 
 .transparent-table {
   border-collapse: collapse;
   position: absolute;
-  top: 28px;
-  left: 35px;
+  top: 80px;
+  left: 65px;
   background-color: transparent;
-  width: 100%;
+  width: 62.5%;
   table-layout: fixed;
 }
 .transparent-table td {
@@ -46,7 +52,8 @@ left: -45px;
 }
 .fretboard {
   display: flex;
-  width: 132%;
+  left: 36px;
+  width: 133%;
   height: auto;
 }
 
@@ -55,3 +62,17 @@ td img {
   width: 50px;
   height: 73.5px;
 }
+.buttons {
+margin-top: 10px;
+margin-bottom: 20px;
+}
+
+.question {
+visibility: visible;
+}
+.hidden {
+display: none;
+}
+
+.red {
+background-color: red;}

@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block title %}Flashcards{% endblock %}
+{% block style %}<link rel="stylesheet" href="/static/flashcard_styles.css" />{% endblock %}
+{% block content %}
+  <h1>Chose a position</h1>
+  <a href="./B6">B</a>
+  <a href="./E3">E</a>
+  <a href="./A7">A</a>
+  <a href="./D4">D</a>
+  <a href="./G1">G</a>
+  <a href="./C5">C</a>
+  <a href="./F2">F</a>
+  <a href="./Bb6">Bb</a>
+  <a href="./Eb3">Eb</a>
+  <a href="./Ab7">Ab</a>
+  <a href="./Db4">Db</a>
+  <a href="./Gb1">Gb</a>
+  {% block notes %}
+    <div class="card">
+      <div class="fretboard-container">
+        <img src="/static/images/Fretboard.svg"
+             alt=""
+             width="50%"
+             height="50%"
+             class="fretboard" />
+      </div>
+    </div>
+  {% endblock notes %}
+{% endblock content %}

@@ -1,3 +1,4 @@
+{% from "macros.html" import sidebar_nav %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,26 +17,27 @@
       <link rel="stylesheet" href="{{ url_for('static', path='/css/app.css') }}">
     {% endblock %}
   </head>
-  <header class="bg-blue-300 ">
-    <nav>
-      <ul>
-        <li class=" ">
-          <a href="/flashcards/positions">7 positions</a>
-        </li>
-        <li>
-          <a href="/flashcards/random">Random notes</a>
-        </li>
-      </ul>
-    </nav>
+  <header class="bg-white">
+    <div id="header" class="bg-slate-900 text-white p-2">FretMaster</div>
   </header>
-  <body>
-    <main>
-      {% block content %}
-        <h1>FretMaster</h1>
-        <p>
-          An introduction Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque atque perspiciatis illo voluptas magni quaerat modi delectus amet quae praesentium, vel molestiae corrupti dignissimos laudantium laborum autem explicabo debitis. Et?
-        </p>
-      {% endblock %}
-    </main>
+  <body class="bg-slate-100">
+    <div id="wrapper" class="flex ">
+      <!-- Sidebar -->
+      <div id="sidebar" class="flex flex-col bg-slate-900 min-w-1/6 h-screen ">
+        <div id="logo" class="text-white text-4xl text-center p-8">f</div>
+        <nav class="text-white">
+          {{ sidebar_nav(nav_items) }}
+        </nav>
+      </div>
+      <!-- Main -->
+      <main class="flex flex-col justify-items-center items-center p-8">
+        {% block content %}
+          <h1>General Instructions</h1>
+          <p>
+            An introduction Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque atque perspiciatis illo voluptas magni quaerat modi delectus amet quae praesentium, vel molestiae corrupti dignissimos laudantium laborum autem explicabo debitis. Et?
+          </p>
+        {% endblock %}
+      </main>
+    </div>
   </body>
 </html>

@@ -18,4 +18,4 @@ def return_random_note_in_key(key_position):
 
 
 # [4, 6, 7, 16, 18, 19, 28, 30, 32, 40, 42, 52, 53, 55, 64, 66, 67]
-print(return_random_note_in_key("B6"))
+# print(return_random_note_in_key("B6"))

@@ -1,4 +1,5 @@
 import json
+import random
 
 
 def return_all_frets() -> list:
@@ -21,7 +22,6 @@ def return_indexes_for_all_keys() -> list[object]:
 
     with open("data/keys_by_position.json", "r") as file:
         key_notes = json.load(file)
-
     return key_notes
 
 
@@ -57,15 +57,7 @@ def return_all_frets_with_key(key_position) -> list[object]:
         for fret in all_frets:
             if fret["index"] == index:
                 fret["pluck"] = True
-    # for fret_number in key_frets:
-    #     for fret_dict in all_frets:
-    #         if fret_number == fret_dict["fret"]:
-    #             fret_dict["pluck"] = True
-    #         if fret_dict["note"] == key_position[0]:
-    #             fret_dict["root"] = True
-    #             # updated_frets.append(fret_dict)
-
-    # return matching
+    # print("key_frets: ", key_frets)
     return all_frets
 
 
@@ -81,5 +73,5 @@ def fretboard_matrix(notes: list[object]):
         fretboard.append(fret_group)
         fret_group = []
         fret += 1
-
+    print(notes)
     return fretboard

@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block title %}Keys{% endblock %}
+<!-- content -->
+{% block content %}
+  <p>request.path: {{ request.path[6:7] }}</p>
+  <p>key: {{ key }}</p>
+  <h1>Keys Instructions</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ipsa ea fugiat inventore, laudantium qui unde exercitationem eligendi voluptate sapiente, odit dicta suscipit quaerat molestiae dolor facere dignissimos eaque quas.
+  </p>
+  <div id="key-nav"
+       class="flex flex-wrap text-sm sm:justify-between my-4 gap-2">{% include "partials/keys_subnav.html" %}</div>
+  {% block flashcard %}
+    {% include "partials/ghost_flashcard.html" %}
+  {% endblock %}
+{% endblock content %}

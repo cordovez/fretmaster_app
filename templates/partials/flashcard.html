@@ -1,0 +1,14 @@
+<div class=" flex justify-center bg-white rounded-xl shadow-md p-2 w-48 h-96 ">
+    <div class="flex justify-center w-48 h-94" id="random-card">
+        <img src="/static/images/Fretboard.svg"
+             alt="blank fretboard"
+             width=""
+             height="" />
+    </div>
+    <div id="notes">
+        {% block notes_on_fretboard %}
+            <p>No Notes On Fretboard</p>
+        {% endblock notes_on_fretboard %}
+    </div>
+</div>
+<div id="buttons" class="flex my-10 gap-2">{% include 'partials/draw_flip.html' %}</div>

@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% block title %}Shapes{% endblock %}
+<!-- content -->
+{% block content %}
+    <h1>Seven Positions (shapes)</h1>
+    <p>
+        These flashcards present all the notes in a given position. The objective is to be able to recognise each position by the shape the notes make on any section of the fretboard. Note that the sequence of notes on both E strings is identical.
+    </p>
+    <p>answer: {{ answer }}</p>
+    <p>question: {{ question }}</p>
+    <div class=" my-10">
+        {% block flashcard %}
+            {% include "partials/ghost_flashcard.html" %}
+            {% include "partials/draw_flip_buttons.html" %}
+        {% endblock flashcard %}
+    </div>
+{% endblock %}

@@ -1,42 +1,53 @@
-<div class="fretboard" id="question">
-    {% include "blank_fretboard.html" %}
-    <table class="transparent-table">
+{% macro sidebar_nav(nav_items) %}
+    <ul>
+        {% for item  in nav_items %}
+            <li class="px-4 hover:bg-blue-500">
+                <a href="{{ item['path'] }}">{{ item["label"] }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+<!-- Random note on key -->
+{% macro random_note_on_key_shape(fretboard, random) %}
+    <table>
         {% for fret in fretboard %}
             {% if fret[0]['fret'] < 9 %}
-                <tr id="Fret-{{ fret[0]['fret'] }}" class="border-bottom">
+                <tr id="Fret-{{ fret[0]['fret'] }}" class="">
                     <!-- RANDOM NOTE SELECTED TO GUESS -->
                     {% for note in fret %}
                         {% if note['index'] == random %}
                             <td id="{{ note['note'] }}"
                                 data-index="{{ note['index'] }}"
-                                class="random-note">
+                                class="py-1 ">
                                 {% if note['index'] == random and note['note'] == key %}
                                     <img src="/static/images/Notes_root_selected.svg"
                                          alt="note in the scale"
-                                         width="50px"
-                                         height="90px" />
+                                         width="45px"
+                                         height="" />
                                 {% else %}
                                     <img src="/static/images/Notes_selected.svg"
                                          alt="note in the scale"
-                                         width="50px"
-                                         height="90px" />
+                                         width="45px"
+                                         height="" />
                                 {% endif %}
                             </td>
                             <!-- NOTES IN SCALE -->
                         {% elif note['pluck'] %}
-                            <td id="{{ note['note'] }}" data-index="{{ note['index'] }}" class="note">
+                            <td id="{{ note['note'] }}"
+                                data-index="{{ note['index'] }}"
+                                class="py-1 ">
                                 <img src="/static/images/Notes.svg"
                                      alt="note in the scale"
-                                     width="50px"
-                                     height="90px" />
+                                     width="45px"
+                                     height="" />
                             </td>
                             <!-- NOTES NOT IN SCALE -->
                         {% else %}
-                            <td id="{{ note['note'] }}" class="silent-notes">
+                            <td id="{{ note['note'] }}" class="py-1 ">
                                 <img src="/static/images/Notes_ghost.svg"
                                      alt="note not in the scale"
-                                     width="50px"
-                                     height="90px" />
+                                     width="45px"
+                                     height="" />
                             </td>
                         {% endif %}
                     {% endfor %}
@@ -44,11 +55,12 @@
             {% endif %}
         {% endfor %}
     </table>
-</div>
-<div class="hidden" id="answer">
+{% endmacro %}
+<!-- highlighted note -->
+{% macro get_highlighted_note(fretboard, random) %}
     {% for fret  in fretboard %}
         {% for note  in fret %}
-            {% if note.index == random %}<p>{{ note.note }}</p>{% endif %}
+            {% if note['index'] == random %}<h1>{{ note['note'] }}</h1>{% endif %}
         {% endfor %}
     {% endfor %}
-</div>
+{% endmacro %}

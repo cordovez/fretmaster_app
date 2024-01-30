@@ -1,0 +1,44 @@
+{% extends "partials/basic_flashcard.html" %}
+{% from 'macros.html' import get_button %}
+{% block card_content %}
+    <div class="flex justify-center items-center bg-white rounded-xl shadow-md p-2 w-48 h-[500px] ">
+        <div id="answer" class="hidden">{{ position }}</div>
+        <div id="question" class=" relative  ">
+            <div class="flex justify-center">
+                <div id="note-set" class="z-10 absolute w-36   top-[30px] ">{% include 'partials/_shapes_flashcard_notes.html' %}</div>
+                <div id="fretboard" class="z-0  w-48 h-94 ">{% include 'partials/unmarked_fretboard.html' %}</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block card_buttons %}
+    <div id="draw-flip-buttons" class="flex my-10 gap-2">
+        {{ get_button(label = "Draw", id="draw-button", href="/shapes/draw", target="#card") }}
+        <button id="flip-button"
+                hx-on:click="toggleVisibility()"
+                hx-swap="transition:true"
+                class="group relative inline-block text-sm font-medium text-slate-600 focus:outline-none focus:ring active:text-slate-500">
+            <span class="absolute inset-0 translate-x-0.5 translate-y-0.5 bg-slate-600 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
+            <span class="relative block border border-current bg-white px-8 py-3">Flip</span>
+        </button>
+    </div>
+    <script>
+function toggleVisibility() {
+   
+    var answer = document.getElementById("answer");
+    var question = document.getElementById("question")
+    var flipButton = document.getElementById("flip-button")
+    var drawButton = document.getElementById("draw-button")
+
+    if(question.style.display === "none"){
+        question.style.display = "block";
+        answer.style.display = "none";
+    } else {
+        question.style.display = "none";
+        answer.style.display = "block";
+        flipButton.style.visibility = "hidden"
+    }
+    
+}
+    </script>
+{% endblock %}

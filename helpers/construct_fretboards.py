@@ -23,5 +23,4 @@ def arrange_fretboard_as_matrix(notes: list[dict]) -> list[list]:
         fretboard.append(fret_group)
         fret_group = []
         fret += 1
-    print(notes)
     return fretboard

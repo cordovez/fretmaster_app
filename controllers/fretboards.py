@@ -57,7 +57,6 @@ def return_all_frets_with_key(key_position) -> list[object]:
         for fret in all_frets:
             if fret["index"] == index:
                 fret["pluck"] = True
-    # print("key_frets: ", key_frets)
     return all_frets
 
 
@@ -73,5 +72,4 @@ def fretboard_matrix(notes: list[object]):
         fretboard.append(fret_group)
         fret_group = []
         fret += 1
-    print(notes)
     return fretboard

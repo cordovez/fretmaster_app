@@ -13,6 +13,3 @@ def return_random_key() -> Position:
         rand_num = random.randint(0, 6)
         sequence = list(all_positions[rand_num].values())[0]
         return Position(rand_num + 1, sequence)
-
-
-# print(return_note_sequence_for_random_position())

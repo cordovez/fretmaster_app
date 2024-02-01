@@ -1,14 +1,16 @@
-{% extends "index.html" %}
+{% extends 'index.html' %}
+{% from 'macros.html' import get_button %}
 {% block title %}Keys{% endblock %}
 <!-- content -->
 {% block content %}
-  <h1>Keys Instructions</h1>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ipsa ea fugiat inventore, laudantium qui unde exercitationem eligendi voluptate sapiente, odit dicta suscipit quaerat molestiae dolor facere dignissimos eaque quas.
-  </p>
-  <div id="key-nav"
-       class="flex flex-wrap text-sm sm:justify-between my-4 gap-2">{% include "partials/keys_subnav.html" %}</div>
-  {% block flashcard %}
-    {% include "partials/ghost_flashcard.html" %}
-  {% endblock %}
+  <h1>All Keys ( in seven shapes)</h1>
+  <p>Notes will be presented at random based on the key selected.</p>
+  <div class=" flex flex-col items-center my-10">
+    <!-- The musical keys navigation -->
+    <div id="keys_nav" class="mb-10">{% include "partials/_keys_subnav.html" %}</div>
+    <!-- The Flashcard -->
+    {% block flashcard %}
+      {% include 'partials/basic_flashcard.html' %}
+    {% endblock flashcard %}
+  </div>
 {% endblock content %}

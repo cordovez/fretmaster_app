@@ -1,0 +1,46 @@
+<table>
+    {% for fret in fretboard %}
+        {% if fret[0]['fret'] < 9 %}
+            <tr id="Fret-{{ fret[0]['fret'] }}" class="">
+                <!-- RANDOM NOTE SELECTED TO GUESS -->
+                {% for note in fret %}
+                    {% if note['index'] == random %}
+                        <td id="{{ note['note'] }}"
+                            data-index="{{ note['index'] }}"
+                            class="py-1 ">
+                            {% if note['index'] == random and note['note'] == key %}
+                                <img src="/static/images/Notes_root_selected.svg"
+                                     alt="note in the scale"
+                                     width="45px"
+                                     height="" />
+                            {% else %}
+                                <img src="/static/images/Notes_selected.svg"
+                                     alt="note in the scale"
+                                     width="45px"
+                                     height="" />
+                            {% endif %}
+                        </td>
+                        <!-- NOTES IN SCALE -->
+                    {% elif note['pluck'] %}
+                        <td id="{{ note['note'] }}"
+                            data-index="{{ note['index'] }}"
+                            class="py-1 ">
+                            <img src="/static/images/Notes.svg"
+                                 alt="note in the scale"
+                                 width="45px"
+                                 height="" />
+                        </td>
+                        <!-- NOTES NOT IN SCALE -->
+                    {% else %}
+                        <td id="{{ note['note'] }}" class="py-1 ">
+                            <img src="/static/images/Notes_ghost.svg"
+                                 alt="note not in the scale"
+                                 width="45px"
+                                 height="" />
+                        </td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endif %}
+    {% endfor %}
+</table>

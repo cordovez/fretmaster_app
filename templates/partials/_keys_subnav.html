@@ -1,11 +1,12 @@
 {% for key  in keys %}
     {% if request.path[6:7] == key %}
         <a id="{{ key }}"
-           class="target:bg-blue-600 p-1 bg-blue-200  sm:p-2 hover:bg-blue-400"
-           href="#">{{ position }}{{ key }}</a>
+           class="target:bg-blue-600 p-1 bg-blue-200  sm:p-2 hover:bg-blue-400">{{ key }}</a>
     {% else %}
         <a id="{{ keys[key] }}"
            class="p-1 bg-blue-200  sm:p-2 hover:bg-blue-400"
-           href="/{{ keys[key] }}">{{ position }}{{ key }}</a>
+           hx-swap="transition:true"
+           hx-target="#card"
+           hx-get="/{{ keys[key] }}">{{ key }}</a>
     {% endif %}
 {% endfor %}

@@ -16,8 +16,8 @@ def get_nav() -> list[dict]:
             "icon": None,
         },
         {
-            "label": "triads",
-            "path": "/triads",
+            "label": "roots",
+            "path": "/roots",
             "icon": None,
         },
     ]

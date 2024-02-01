@@ -5,11 +5,32 @@
 {% block content %}
     <h1>Seven Positions (shapes)</h1>
     <p>
-        These flashcards present all the notes in a given position. The objective is to be able to recognise each position by the shape the notes make on any section of the fretboard. Note that the sequence of notes on both E strings is identical.
+        The "shape" of each position is presented, with the respective position number on the flip side. To recognise and memorise the shapes, it helps to look at the sequence of fretted frets on either the two lowest or the two highest strings.
     </p>
+    <!-- The flashcard -->
     <div class=" flex flex-col items-center my-10">
         {% block flashcard %}
             {% include 'partials/basic_flashcard.html' %}
         {% endblock flashcard %}
     </div>
+    <!-- The Start Button -->
+    <div id="start-button" class="mt-10">
+        <!-- {{ get_button(id="start-button", label="start", href="shapes/draw", target="#card") }} -->
+        <button id="start-button"
+                hx-get="/shapes/draw"
+                hx-on::after-request="toggleVisibility()"
+                hx-target="#card"
+                hx-swap="transition:true"
+                class="group relative inline-block text-sm font-medium text-slate-600 focus:outline-none focus:ring active:text-slate-500">
+            <span class="absolute inset-0 translate-x-0.5 translate-y-0.5 bg-slate-600 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
+            <span class="relative block border border-current bg-white px-8 py-3">Start</span>
+        </button>
+    </div>
+    <script>
+function toggleVisibility(){
+var startButton = document.getElementById("start-button");
+    startButton.style.visibility = "hidden";
+
+}
+    </script>
 {% endblock content %}

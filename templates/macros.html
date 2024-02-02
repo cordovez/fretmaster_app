@@ -1,12 +1,3 @@
-{% macro sidebar_nav(nav_items) %}
-    <ul>
-        {% for item  in nav_items %}
-            <li class="px-4 hover:bg-blue-500">
-                <a href="{{ item['path'] }}">{{ item["label"] }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-{% endmacro %}
 {% macro get_highlighted_note(fretboard, random) %}
     {% for fret  in fretboard %}
         {% for note  in fret %}

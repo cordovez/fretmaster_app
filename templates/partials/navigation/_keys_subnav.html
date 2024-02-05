@@ -1,0 +1,7 @@
+{% for key  in keys %}
+    <a id="{{ keys[key] }}"
+       class="p-1 bg-blue-600  sm:p-2 hover:bg-blue-400"
+       hx-swap="transition:true"
+       hx-target="#card"
+       hx-get="/{{ keys[key] }}">{{ key }}</a>
+{% endfor %}

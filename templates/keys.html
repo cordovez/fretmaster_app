@@ -7,7 +7,10 @@
   <p>Notes will be presented at random based on the key selected.</p>
   <div class=" flex flex-col items-center my-10">
     <!-- The musical keys navigation -->
-    <div id="keys_nav" class="mb-10">{% include "partials/_keys_subnav.html" %}</div>
+    <div id="keys_nav"
+         class="flex flex-wrap justify-center gap-2 mb-6 text-4xl ">
+      {% include "partials/navigation/_keys_subnav.html" %}
+    </div>
     <!-- The Flashcard -->
     {% block flashcard %}
       {% include 'partials/basic_flashcard.html' %}

@@ -8,7 +8,7 @@
                         <td id="{{ note['note'] }}"
                             data-index="{{ note['index'] }}"
                             class="py-1 ">
-                            {% if note['index'] == random and note['note'] == key %}
+                            {% if note['note'] == key_position[0] %}
                                 <img src="/static/images/Notes_root_selected.svg"
                                      alt="note in the scale"
                                      width="45px"

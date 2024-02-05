@@ -14,6 +14,7 @@ from controllers.fretboard_matrices import (
 from dependencies.main_nav import get_nav
 from dependencies.music_keys import get_music_keys
 
+
 front_router = APIRouter()
 
 templates = Jinja2Templates(directory="templates")

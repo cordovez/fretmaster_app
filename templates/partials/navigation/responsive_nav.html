@@ -1,0 +1,31 @@
+<nav class="flex justify-between items-center w-[92%] mx-auto ">
+    <!-- LOGO  -->
+    <div>
+        <h1>
+            <span class="font-Playfair text-2xl md:text-4xl text-blue-400">fret</span><span class="font-Playfair text-2xl md:text-4xl text-purple-700">master</span>
+        </h1>
+    </div>
+    <!-- Links -->
+    <div class="nav-links duration-500 absolute bg-white min-h-[60vh] left-0 top-[-100%] w-full flex items-center px-5 md:static md:min-h-fit md:w-auto">
+        <ul class="flex flex-col gap-8 md:gap-[4vw] md:flex-row md:items-center">
+            {% for item  in nav_items %}
+                {% if item.label != "home" %}
+                    <li>
+                        <a class="hover:text-gray-500" href="{{ item.path }}">{{ item.label }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="flex items-center gap-6">
+        <button class="bg-[#a6c1ee] text-white p-1 my-2 lg:px-5 lg:py-2 rounded-full hover:bg-[#87acec]">Sign In</button>
+        <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+    </div>
+</nav>
+<script>
+function onToggleMenu(e){
+  const navLinks = document.querySelector('.nav-links')
+  e.name = e.name === 'menu' ? 'close' : 'menu'
+  navLinks.classList.toggle('top-[7%]')
+}
+</script>

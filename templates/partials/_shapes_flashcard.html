@@ -1,5 +1,5 @@
 {% extends "partials/basic_flashcard.html" %}
-{% from 'macros.html' import get_button %}
+{% from 'macros.html' import get_button, action_button %}
 {% block card_content %}
     <div class="flex justify-center items-center bg-white rounded-xl shadow-md p-2 w-48 h-[500px] ">
         <div id="answer" class="hidden text-black">{{ position }}</div>
@@ -14,13 +14,7 @@
 {% block card_buttons %}
     <div id="draw-flip-buttons" class="flex my-10 gap-2">
         {{ get_button(label = "Draw", id="draw-button", href="/shapes/draw", target="#card") }}
-        <button id="flip-button"
-                hx-on:click="toggleVisibility()"
-                hx-swap="transition:true"
-                class="group relative inline-block text-sm font-medium text-slate-600 focus:outline-none focus:ring active:text-slate-500">
-            <span class="absolute inset-0 translate-x-0.5 translate-y-0.5 bg-slate-600 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
-            <span class="relative block border border-current bg-white px-8 py-3">Flip</span>
-        </button>
+        {{ action_button(id="flip-button", callback="toggleVisibility()", label="Flip") }}
     </div>
     <script>
 function toggleVisibility() {

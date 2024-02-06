@@ -2,14 +2,25 @@
 {% from 'macros.html' import get_button, action_button %}
 <!-- The Card Content -->
 {% block card_content %}
-    <div class="flex justify-center items-center bg-white rounded-xl shadow-md p-2 w-48 h-[500px] ">
-        <div id="answer" class="hidden text-black">{{ note_value }}</div>
-        <div id="question" class=" relative  ">
-            <div class="flex justify-center">
-                <!-- the notes imported -->
-                <div id="note-set" class="z-10 absolute w-36   top-[30px] ">{% include 'partials/_keys_flashcard_notes.html' %}</div>
-                <!-- with a fretboard image behind the notes -->
-                <div id="fretboard" class="z-0  w-48 h-94 ">{% include 'partials/blank_fretboard.html' %}</div>
+    <div class="flex flex-col items-center justify-center ">
+        {% if key_position|length == 3 %}
+            <h1 class="mb-8 text-2xl">key: {{ key_position[0:2] }}</h1>
+        {% else %}
+            <h1 class="mb-8 text-2xl">key: {{ key_position[0] }}</h1>
+        {% endif %}
+        <div class="flex justify-center items-center bg-white rounded-xl shadow-md p-2 w-48 h-[500px] ">
+            {% if note_value|length > 1 %}
+                <div id="answer" class="hidden text-black text-4xl font-Playfair">{{ note_value[0] }}♭</div>
+            {% else %}
+                <div id="answer" class="hidden text-black text-4xl font-Playfair">{{ note_value }}</div>
+            {% endif %}
+            <div id="question" class=" relative  ">
+                <div class="flex justify-center">
+                    <!-- the notes imported -->
+                    <div id="note-set" class="z-10 absolute w-36   top-[30px] ">{% include 'partials/_keys_flashcard_notes.html' %}</div>
+                    <!-- with a fretboard image behind the notes -->
+                    <div id="fretboard" class="z-0  w-48 h-94 ">{% include 'partials/blank_fretboard.html' %}</div>
+                </div>
             </div>
         </div>
     </div>
@@ -19,13 +30,6 @@
     <div id="draw-flip-buttons" class="flex my-10 gap-2">
         {{ get_button(label = "Draw", id="draw-button", href="/keys/"+ key_position, target="#card") }}
         {{ action_button(label = "Flip", id="flip-button", callback="toggleVisibility()") }}
-    </div>
-    <div class="temporary">
-        <h1>The values passed in:</h1>
-        <p>Position: {{ position }}</p>
-        <p>Random: {{ random }}</p>
-        <p>key_position: {{ key_position }}</p>
-        <p>key: {{ key }}</p>
     </div>
     <script>
 function toggleVisibility() {

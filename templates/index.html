@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block head %}
       <title>
-        {% block title %}FretMaster{% endblock %}
+        {% block title %}Fourthsmaster{% endblock %}
       </title>
     {% endblock %}
     <!-- Google Fonts -->
@@ -23,17 +23,36 @@
             integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
             crossorigin="anonymous"></script>
   </head>
-  <body class="bg-slate-900  h-vh ">
+  <body class="bg-gradient-to-b from-slate-900 to-slate-700  h-dvh ">
     <!-- Header / Hero -->
     <header class="bg-white">
       {% include 'partials/navigation/responsive_nav.html' %}
     </header>
     <!-- Main -->
-    <main class="flex flex-col justify-items-center items-center p-8 text-white">
+    <main class="flex flex-col justify-items-center items-center p-8 text-white ">
       {% block content %}
-        <h1 class="text-white text-4xl ">General Instructions</h1>
-        <p>
-          An introduction Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque atque perspiciatis illo voluptas magni quaerat modi delectus amet quae praesentium, vel molestiae corrupti dignissimos laudantium laborum autem explicabo debitis. Et?
+        <h1 class="text-white text-4xl ">Learning the Fretboard</h1>
+        <p class="my-2">
+          This simple app was created to help you memorise the notes on the fretboard. It does this not by going down each string or each fret, but by grouping them around the keys as arranged by fourth intervals. Additionally, the arrangement of the notes for each key is based on one of the <a href="https://www.fretjam.com/major-scale-positions.html"
+    class="hover:text-blue-500 underline underline-offset-4 text-blue-300 ">seven positions of the major scale</a>
+        </p>
+        <p class="my-2">
+          The diagram below illustrates that by placing your pinky finger in the any of the <span class="text-green-300">light-green notes</span> on the bottom of the illustration, you have access to all 12 musical keys within the reach of your fingers, with only a shift of a single fret (from the light green to the dark green notes).
+        </p>
+        <div class="md:w-[30%] md:h-[30%] my-10">
+          <img src="/static/images/Circle_of_fourths.png"
+               alt="circle of fourths on the fretboard">
+        </div>
+        <p class="my-2">
+          Following the <span class="text-green-300">light-green note arrows</span> from the bottom, the keys are B, E, A, D, G, C, F. Then shifting to the <span class="text-green-700">dark-green notes</span>, the sequence continues to B♭, E♭, A♭, D♭, G♭. I like to arrange them starting from B, as reading "BEAD" is easier to remember. Mnemonic: "BEAD [G]oes in [C]ircles, [F]lattened B♭E♭A♭D♭ [G]oes [♭]ack"
+        </p>
+        <p class="my-2">
+          There are many benefits to learning the concept of this arrangement of the keys. <a href="https://www.musicgateway.com/blog/music-theory/what-is-a-circle-of-fourths#:~:text=The%20Circle%20of%20Fourths%20is%20a%20diagram%20that%20shows%20the,is%20four%20notes%20above%20C."
+    class="hover:text-blue-500 underline underline-offset-4 text-blue-300">Others explain it better than I could</a>
+        </p>
+        <p class="my-2">
+          The first logical step is to <a href="/shapes"
+    class="hover:text-blue-500 underline underline-offset-4 text-blue-300 ">learn the shapes</a> that each position of the major scale makes.
         </p>
       {% endblock %}
     </main>

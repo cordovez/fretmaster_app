@@ -2,16 +2,17 @@
     <!-- LOGO  -->
     <div>
         <h1>
-            <a href="/"><span class="font-Playfair text-2xl md:text-4xl text-blue-400">fret</span><span class="font-Playfair text-2xl md:text-4xl text-purple-700">master</span></a>
+            <a href="/"><span class="font-Playfair text-2xl md:text-4xl text-blue-400">fourths</span><span class="font-Playfair text-2xl md:text-4xl text-purple-700">master</span></a>
         </h1>
     </div>
     <!-- Links -->
-    <div class="nav-links duration-500 absolute bg-white min-h-[60vh] left-0 top-[-100%] w-full flex items-center px-5 md:static md:min-h-fit md:w-auto">
+    <div class="z-10 nav-links duration-500 absolute bg-white min-h-[60vh] left-0 top-[-100%] w-full flex items-center px-5 md:static md:min-h-fit md:w-auto">
         <ul class="flex flex-col gap-8 md:gap-[4vw] md:flex-row md:items-center">
             {% for item  in nav_items %}
                 {% if item.label != "home" %}
                     <li>
-                        <a class="hover:text-gray-500" href="{{ item.path }}">{{ item.label }}</a>
+                        <a class="text-slate-800 visited:text-green-600 hover:text-gray-500 "
+                           href="{{ item.path }}">{{ item.label }}</a>
                     </li>
                 {% endif %}
             {% endfor %}

@@ -15,7 +15,7 @@
     </div>
     <!-- The Start Button -->
     <div id="start-button" class="mt-10">
-        <!-- {{ get_button(id="start-button", label="start", href="shapes/draw", target="#card") }} -->
+        <!-- this button requires a different hx-on from the "get-button in macros" -->
         <button id="start-button"
                 hx-get="/shapes/draw"
                 hx-on::after-request="toggleVisibility()"

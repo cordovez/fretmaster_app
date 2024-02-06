@@ -1,7 +1,0 @@
-<div class="random-note">
-    {% for fret  in fretboard %}
-        {% for note  in fret %}
-            {% if note.index == random %}<p>{{ note.note }}</p>{% endif %}
-        {% endfor %}
-    {% endfor %}
-</div>
